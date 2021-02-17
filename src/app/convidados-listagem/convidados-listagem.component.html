@@ -1,0 +1,34 @@
+
+<body>
+  
+<br>
+<h1>Lista de Convidados</h1>
+<br>
+<p-table [value]="convidados" [responsive]="true" [paginator]="true" [rows]="20" 
+[resizableColumns]="true" [scrollable]="true" scrollHeight="300px">
+    <ng-template pTemplate="header" header="Custom Header" styleClass="dark-table">
+        
+        <tr >
+            <th style="width:3%; text-align: left"> Id</th>
+            <th style="width:3%; text-align: left"> Nome</th>
+            <th style="width:7%; text-align: center" > Acompanhantes</th>
+            <th style="width:6%; text-align: left;"> Ações</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-convidado>
+      <tr>
+          <td style="width:3%; text-align: left" >{{convidado.id}}</td>
+          <td style="width:3%; text-align: left" >{{convidado.nome}}</td>
+          <td style="width:7%; text-align: center" >{{convidado.quantidade_acompanhantes}}</td>
+
+          <td style="width:6%; text-align: left"> 
+            <button (click) = "atualizaConvidado(convidado.id)" pButton type="button" class="p-button-sm p-button-info p-button-rounded" label="Atualizar"></button>
+             &nbsp;
+            <button (click) = "deletaConvidado(convidado.id)" pButton type="button" class="p-button-sm p-button-danger p-button-rounded" label="Deletar"></button>
+             &nbsp;
+            <button (click) = "detalhesConvidado(convidado.id)" pButton type="button" class="p-button-sm p-button-info p-button-rounded" label="Detalhes"></button>
+        </td>
+      </tr>
+    </ng-template>
+</p-table>
+</body>
